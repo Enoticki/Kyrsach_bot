@@ -11,4 +11,5 @@ router = Router()
 @router.message()
 async def send_answer(message: Message):
     await message.answer(text=LEXICON_RU['other_answer'],
-                         reply_markup=Start_board)
+                         reply_markup=Start_board
+                         )

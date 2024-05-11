@@ -1,5 +1,5 @@
-import sqlite3 as sq
-from sqlite3 import Cursor
+
+
 
 
 async def db_connect() -> None:
@@ -15,9 +15,9 @@ async def get_ank():
     return ank
 
 
-async def add_new_ank(FIO, Educat, Profes, Experience, Qualit, Languag, Info, Works, Contacts):
+async def add_new_ank(FIO, Educat, Profes, like, Experience, Qualit, Languag, Info, Works, Contacts):
     db = sq.connect('./Users.db')
     cur = db.cursor()
     cur.execute("INSERT INTO Users_ank VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                ('', FIO, Educat, Profes, Experience, Qualit, Languag, Info, Works, Contacts))
+                ( FIO, Educat, Profes, like, Experience, Qualit, Languag, Info, Works, Contacts))
     db.commit()

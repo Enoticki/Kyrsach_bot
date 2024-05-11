@@ -4,70 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="Создание администратора и кнопок">
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click-8.1.7.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click-8.1.7.dist-info/LICENSE.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click-8.1.7.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click-8.1.7.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click-8.1.7.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click-8.1.7.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/_compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/_termui_impl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/_textwrap.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/_winconsole.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/decorators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/formatting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/globals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/py.typed" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/shell_completion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/termui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/testing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/types.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/click/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama-0.4.6.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama-0.4.6.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama-0.4.6.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama-0.4.6.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama-0.4.6.dist-info/licenses/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/ansi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/ansitowin32.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/initialise.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/tests/ansi_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/tests/ansitowin32_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/tests/initialise_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/tests/isatty_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/tests/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/tests/winterm_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/win32.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/colorama/winterm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services-0.1.1.dist-info/AUTHORS.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services-0.1.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services-0.1.1.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services-0.1.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services-0.1.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services-0.1.1.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services-0.1.1.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services-0.1.1.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services-0.1.1.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services/cli.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Lib/site-packages/services/services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv/Scripts/services.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keyboards/keyboards.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lexicon/lexicon_ru.py" afterDir="false" />
+    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="попытка от избавления ненужных файлов">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BaseD/sqbd.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseD/sqbd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users.db" beforeDir="false" afterPath="$PROJECT_DIR$/Users.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/other_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/other_handlers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/user_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/user_handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lexicon/lexicon.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboards/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/keyboards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lexicon/lexicon_ru.py" beforeDir="false" afterPath="$PROJECT_DIR$/lexicon/lexicon_ru.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +162,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715255034990</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Реструктурирование кода и разделение его на модули ради более удобной интеграции и улучшения">
+      <option name="closed" value="true" />
+      <created>1715341214146</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715341214146</updated>
+    </task>
+    <task id="LOCAL-00007" summary="попытка от избавления ненужных файлов">
+      <option name="closed" value="true" />
+      <created>1715341360046</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715341360046</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,6 +198,8 @@
     <MESSAGE value="steps" />
     <MESSAGE value="step" />
     <MESSAGE value="Создание администратора и кнопок" />
-    <option name="LAST_COMMIT_MESSAGE" value="Создание администратора и кнопок" />
+    <MESSAGE value="Реструктурирование кода и разделение его на модули ради более удобной интеграции и улучшения" />
+    <MESSAGE value="попытка от избавления ненужных файлов" />
+    <option name="LAST_COMMIT_MESSAGE" value="попытка от избавления ненужных файлов" />
   </component>
 </project>

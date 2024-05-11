@@ -3,7 +3,6 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 from lexicon.lexicon_ru import LEXICON_RU
 
-
 Add = KeyboardButton(text=LEXICON_RU['add_ank'])
 View = KeyboardButton(text=LEXICON_RU['all_ank'])
 
@@ -33,5 +32,21 @@ adm_kb = ReplyKeyboardMarkup(
               [button_4],
               [button_5],
               [button_6]],
+    resize_keyboard=True
+)
+
+# Создаем кнопку далее
+nex = KeyboardButton(text=LEXICON_RU['next'])
+
+nex_kb = ReplyKeyboardMarkup(
+    keyboard=[[nex]],
+    resize_keyboard=True
+)
+
+# Создаем кнопку отправить
+send = KeyboardButton(text=LEXICON_RU['send'])
+
+send_kb = ReplyKeyboardMarkup(
+    keyboard=[[send]],
     resize_keyboard=True
 )
