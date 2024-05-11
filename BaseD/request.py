@@ -6,7 +6,7 @@ from sqlalchemy import select
 async def add_new_ank(FIO, Educat, Profes, like, Experience, Qualit, Languag, Info, Works, Contacts):
     async with async_session() as session:
         session.add(User(FIO=FIO, Educat=Educat, Profes=Profes, like=like, Experience=Experience,
-                          Qualit=Qualit, Languag=Languag, Info=Info, Works=Works, Contacts=Contacts))
+                         Qualit=Qualit, Languag=Languag, Info=Info, Works=Works, Contacts=Contacts))
         await session.commit()
 
 

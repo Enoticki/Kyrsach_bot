@@ -1,6 +1,6 @@
 from aiogram import F, Router
 from aiogram.filters import Command, CommandStart, BaseFilter
-from aiogram.types import Message, ReplyKeyboardRemove, CallbackQuery
+from aiogram.types import Message, CallbackQuery
 from keyboards.keyboards import Start_board, adm_kb, all_vievs
 from lexicon.lexicon_ru import LEXICON_RU
 from aiogram.utils.formatting import Text, Bold
@@ -14,7 +14,7 @@ router = Router()
 admin_ids: list[int] = [6153194013, 6419228214]
 
 
-class adank(StatesGroup):
+class Adank(StatesGroup):
     FIO = State()
     Educat = State()
     Profes = State()
@@ -28,8 +28,8 @@ class adank(StatesGroup):
 
 
 class IsAdmin(BaseFilter):
-    def __init__(self, admin_ids: list[int]) -> None:
-        self.admin_ids = admin_ids
+    def __init__(self, Admin_ids: list[int]) -> None:
+        self.admin_ids = Admin_ids
 
     async def __call__(self, message: Message) -> bool:
         return message.from_user.id in self.admin_ids
@@ -67,12 +67,14 @@ async def process_viev(message: Message):
         reply_markup=adm_kb
     )
 
+
 @router.message(F.text == LEXICON_RU['All'])
 async def process_all(message: Message):
     await message.answer(
         text=f'Администратор вот все анкеты',
         reply_markup=await all_vievs()
     )
+
 
 @router.callback_query(F.data.startswith('ank_'))
 async def process_men(callback: CallbackQuery):
@@ -86,6 +88,7 @@ async def process_men(callback: CallbackQuery):
         reply_markup=adm_kb
     )
 
+
 @router.message(F.text == LEXICON_RU['home'])
 async def process_all(message: Message):
     await message.answer(
@@ -96,94 +99,94 @@ async def process_all(message: Message):
 
 @router.message(F.text == LEXICON_RU['add_ank'])
 async def Step_one(message: Message, state: FSMContext):
-    await state.set_state(adank.FIO)
+    await state.set_state(Adank.FIO)
     await message.answer(
         text='Ввидите ваше ФИО.'
     )
 
 
-@router.message(adank.FIO)
+@router.message(Adank.FIO)
 async def Step_two(message: Message, state: FSMContext):
     await state.update_data(FIO=message.text)
-    await state.set_state(adank.Educat)
+    await state.set_state(Adank.Educat)
     await message.answer(
         text='Ввидите полученое вами образование.'
     )
 
 
-@router.message(adank.Educat)
+@router.message(Adank.Educat)
 async def Step_three(message: Message, state: FSMContext):
     await state.update_data(Educat=message.text)
-    await state.set_state(adank.Profes)
+    await state.set_state(Adank.Profes)
     await message.answer(
         text='Ввидите полученое вами профессию.'
     )
 
 
-@router.message(adank.Profes)
+@router.message(Adank.Profes)
 async def Step_four(message: Message, state: FSMContext):
     await state.update_data(Profes=message.text)
-    await state.set_state(adank.like)
+    await state.set_state(Adank.like)
     await message.answer(
         text='Ввидите желаемую должность.'
     )
 
 
-@router.message(adank.like)
+@router.message(Adank.like)
 async def Step_five(message: Message, state: FSMContext):
     await state.update_data(like=message.text)
-    await state.set_state(adank.Experience)
+    await state.set_state(Adank.Experience)
     await message.answer(
         text='Ввидите ваш опыт работы. (если его нету введите "-")'
     )
 
 
-@router.message(adank.Experience)
+@router.message(Adank.Experience)
 async def Step_six(message: Message, state: FSMContext):
     await state.update_data(Experience=message.text)
-    await state.set_state(adank.Qualit)
+    await state.set_state(Adank.Qualit)
     await message.answer(
         text='Ввидите ваши качества.'
     )
 
 
-@router.message(adank.Qualit)
+@router.message(Adank.Qualit)
 async def Step_seven(message: Message, state: FSMContext):
     await state.update_data(Qualit=message.text)
-    await state.set_state(adank.Languag)
+    await state.set_state(Adank.Languag)
     await message.answer(
         text='Ввидите языки которые вы знаете.'
     )
 
 
-@router.message(adank.Languag)
+@router.message(Adank.Languag)
 async def Step_eght(message: Message, state: FSMContext):
     await state.update_data(Languag=message.text)
-    await state.set_state(adank.Info)
+    await state.set_state(Adank.Info)
     await message.answer(
         text='Ввидите информацию о себе.'
     )
 
 
-@router.message(adank.Info)
+@router.message(Adank.Info)
 async def Step_nine(message: Message, state: FSMContext):
     await state.update_data(Info=message.text)
-    await state.set_state(adank.Works)
+    await state.set_state(Adank.Works)
     await message.answer(
         text='Ввидите ссылки на ваши работы через пробел. (если их нету введите "-")'
     )
 
 
-@router.message(adank.Works)
+@router.message(Adank.Works)
 async def Step_ten(message: Message, state: FSMContext):
     await state.update_data(Works=message.text)
-    await state.set_state(adank.Contacts)
+    await state.set_state(Adank.Contacts)
     await message.answer(
         text='Ввидите номер телефона и почту. (Пример: +7********** *****@****.***)'
     )
 
 
-@router.message(adank.Contacts)
+@router.message(Adank.Contacts)
 async def Step_elev(message: Message, state: FSMContext):
     await state.update_data(Contact=message.text)
     data = await state.get_data()
