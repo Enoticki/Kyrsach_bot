@@ -1,18 +1,17 @@
 from aiogram import F, Router
 from aiogram.filters import Command, CommandStart, BaseFilter
-from aiogram.types import Message, ReplyKeyboardRemove
-from keyboards.keyboards import Start_board, adm_kb, nex_kb, send_kb
+from aiogram.types import Message, ReplyKeyboardRemove, CallbackQuery
+from keyboards.keyboards import Start_board, adm_kb, all_vievs
 from lexicon.lexicon_ru import LEXICON_RU
-from BaseD.sqbd import get_ank
 from aiogram.utils.formatting import Text, Bold
-from BaseD.sqbd import add_new_ank
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.fsm.context import FSMContext
+from BaseD.request import add_new_ank, get_ank
 
 # Инициализируем роутер уровня модуля
 router = Router()
 
-admin_ids: list[int] = [6153194013]
+admin_ids: list[int] = [6153194013, 6419228214]
 
 
 class adank(StatesGroup):
@@ -55,25 +54,44 @@ async def process_start_command(message: Message):
 # Этот хэндлер срабатывает на команду /help
 @router.message(Command(commands='help'))
 async def process_help_command(message: Message):
-    await message.answer(text=LEXICON_RU['/help'],
-                         reply_markup=Start_board
-                         )
+    await message.answer(
+        text=LEXICON_RU['/help'],
+        reply_markup=Start_board
+    )
 
 
 @router.message(F.text == LEXICON_RU['all_ank'], IsAdmin(admin_ids))
 async def process_viev(message: Message):
-    Ank = await get_ank()
-    users_str = "\n".join([str(anke) for anke in Ank])
-    if not Ank:
-        await message.answer(
-            text='Рузюме сейчас нету'
-        )
-    else:
-        await message.answer(
-            text=f'Здраствуйте админстратор сейчас я выведу все резюме!',
-            reply_markup=adm_kb
-        )
-        await message.answer(users_str)
+    await message.answer(
+        text=f'Здраствуйте админстратор выберите способ поиска!',
+        reply_markup=adm_kb
+    )
+
+@router.message(F.text == LEXICON_RU['All'])
+async def process_all(message: Message):
+    await message.answer(
+        text=f'Администратор вот все анкеты',
+        reply_markup=await all_vievs()
+    )
+
+@router.callback_query(F.data.startswith('ank_'))
+async def process_men(callback: CallbackQuery):
+    ank_data = await get_ank(callback.data.split('_')[1])
+    await callback.answer('Вы выбрали анкету')
+    await callback.message.answer(
+        text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
+             f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Информация: {ank_data.Info} \n'
+             f' Примеры работ: {ank_data.Works} \n Контактная информация: {ank_data.Contact}',
+        reply_markup=adm_kb
+    )
+
+@router.message(F.text == LEXICON_RU['home'])
+async def process_all(message: Message):
+    await message.answer(
+        text=f'Вы вернулись в начало',
+        reply_markup=adm_kb
+    )
 
 
 @router.message(F.text == LEXICON_RU['add_ank'])
@@ -175,4 +193,6 @@ async def Step_elev(message: Message, state: FSMContext):
              f' Качества: {data['Qualit']} \n Языки: {data['Languag']} \n Информация: {data['Info']} \n'
              f' Примеры работ: {data['Works']} \n Контактная информация: {data['Contact']}'
     )
+    await add_new_ank(data['FIO'], data['Educat'], data['Profes'], data['like'], data['Experience'],
+                      data['Qualit'], data['Languag'], data['Info'], data['Works'], data['Contact'])
     await state.clear()

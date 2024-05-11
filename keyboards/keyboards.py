@@ -1,6 +1,6 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
-
+from aiogram.types import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton, KeyboardButton
+from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
+from BaseD.request import viev_all
 from lexicon.lexicon_ru import LEXICON_RU
 
 Add = KeyboardButton(text=LEXICON_RU['add_ank'])
@@ -23,6 +23,7 @@ button_3 = KeyboardButton(text=LEXICON_RU['find by profession'])
 button_4 = KeyboardButton(text=LEXICON_RU['find by Languages'])
 button_5 = KeyboardButton(text=LEXICON_RU['find by experience'])
 button_6 = KeyboardButton(text=LEXICON_RU['find by Qualities'])
+button_7 = KeyboardButton(text=LEXICON_RU['home'])
 
 adm_kb = ReplyKeyboardMarkup(
     keyboard=[[button_0],
@@ -31,7 +32,8 @@ adm_kb = ReplyKeyboardMarkup(
               [button_3],
               [button_4],
               [button_5],
-              [button_6]],
+              [button_6],
+              [button_7]],
     resize_keyboard=True
 )
 
@@ -50,3 +52,12 @@ send_kb = ReplyKeyboardMarkup(
     keyboard=[[send]],
     resize_keyboard=True
 )
+
+async def all_vievs():
+    all = await viev_all()
+    keyboard = InlineKeyboardBuilder()
+    for viev in all:
+        keyboard.add(InlineKeyboardButton(text=viev.FIO, callback_data=viev.id))
+    keyboard.add(InlineKeyboardButton(text=LEXICON_RU['home']))
+    return keyboard.adjust(4).as_markup()
+
