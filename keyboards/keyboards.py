@@ -23,7 +23,8 @@ button_3 = KeyboardButton(text=LEXICON_RU['find by profession'])
 button_4 = KeyboardButton(text=LEXICON_RU['find by Languages'])
 button_5 = KeyboardButton(text=LEXICON_RU['find by experience'])
 button_6 = KeyboardButton(text=LEXICON_RU['find by Qualities'])
-button_7 = KeyboardButton(text=LEXICON_RU['home'])
+button_7 = KeyboardButton(text=LEXICON_RU['find by like'])
+button_8 = KeyboardButton(text=LEXICON_RU['home'])
 
 adm_kb = ReplyKeyboardMarkup(
     keyboard=[[button_0],
@@ -33,23 +34,8 @@ adm_kb = ReplyKeyboardMarkup(
               [button_4],
               [button_5],
               [button_6],
-              [button_7]],
-    resize_keyboard=True
-)
-
-# Создаем кнопку далее
-nex = KeyboardButton(text=LEXICON_RU['next'])
-
-nex_kb = ReplyKeyboardMarkup(
-    keyboard=[[nex]],
-    resize_keyboard=True
-)
-
-# Создаем кнопку отправить
-send = KeyboardButton(text=LEXICON_RU['send'])
-
-send_kb = ReplyKeyboardMarkup(
-    keyboard=[[send]],
+              [button_7],
+              [button_8]],
     resize_keyboard=True
 )
 
@@ -58,6 +44,6 @@ async def all_vievs():
     All = await viev_all()
     keyboard = InlineKeyboardBuilder()
     for viev in All:
-        keyboard.add(InlineKeyboardButton(text=viev.FIO, callback_data=viev.id))
-    keyboard.add(InlineKeyboardButton(text=LEXICON_RU['home']))
-    return keyboard.adjust(4).as_markup()
+        keyboard.add(InlineKeyboardButton(text=viev.FIO, callback_data=f'FIO_{viev.iad}'))
+    keyboard.add(InlineKeyboardButton(text=LEXICON_RU['home'], callback_data='home'))
+    return keyboard.adjust(2).as_markup()

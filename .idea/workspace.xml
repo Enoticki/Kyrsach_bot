@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="полная реструктуризация запросов &quot;начало&quot;">
-      <change afterPath="$PROJECT_DIR$/BaseD/request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="Исправление ошибок и реструктурирование по PEP8">
+      <change afterPath="$PROJECT_DIR$/BaseD/States.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.sqlite3-journal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseD/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseD/request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BaseD/sqbd.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseD/sqbd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/other_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/other_handlers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/user_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/user_handlers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/keyboards/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/keyboards.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lexicon/lexicon_ru.py" beforeDir="false" afterPath="$PROJECT_DIR$/lexicon/lexicon_ru.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +43,9 @@
     &quot;accountId&quot;: &quot;2497eee8-5ff9-43b5-a0fc-c8d52b19c214&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -62,6 +66,7 @@
     &quot;Python.dfg.executor&quot;: &quot;Run&quot;,
     &quot;Python.ghj,f.executor&quot;: &quot;Run&quot;,
     &quot;Python.inlkey.executor&quot;: &quot;Run&quot;,
+    &quot;Python.keyboards.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.proverka.executor&quot;: &quot;Run&quot;,
     &quot;Python.sqbd.executor&quot;: &quot;Run&quot;,
@@ -187,7 +192,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715430468679</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Создана функциональная часть для пользователя">
+      <option name="closed" value="true" />
+      <created>1715438585271</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715438585271</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Исправление ошибок и реструктурирование по PEP8">
+      <option name="closed" value="true" />
+      <created>1715438888146</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715438888146</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +231,8 @@
     <MESSAGE value="Реструктурирование кода и разделение его на модули ради более удобной интеграции и улучшения" />
     <MESSAGE value="попытка от избавления ненужных файлов" />
     <MESSAGE value="полная реструктуризация запросов &quot;начало&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="полная реструктуризация запросов &quot;начало&quot;" />
+    <MESSAGE value="Создана функциональная часть для пользователя" />
+    <MESSAGE value="Исправление ошибок и реструктурирование по PEP8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправление ошибок и реструктурирование по PEP8" />
   </component>
 </project>

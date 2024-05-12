@@ -1,3 +1,4 @@
+from sqlalchemy import BigInteger
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
 
@@ -10,7 +11,14 @@ class Base(AsyncAttrs, DeclarativeBase):
     pass
 
 
-class User(Base):
+class User_name(Base):
+    __tablename__ = 'Name'
+    iad: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    FIO: Mapped[str] = mapped_column()
+    tg_id = mapped_column(BigInteger)
+
+
+class User_Info(Base):
     __tablename__ = 'Users'
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)

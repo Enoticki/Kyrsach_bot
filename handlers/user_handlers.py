@@ -1,30 +1,18 @@
 from aiogram import F, Router
 from aiogram.filters import Command, CommandStart, BaseFilter
+from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, CallbackQuery
+from aiogram.utils.formatting import Text, Bold
+
+from BaseD.States import Adank, find
+from BaseD.request import add_new_ank, get_ank, OnePhase, Find_by_FIO
 from keyboards.keyboards import Start_board, adm_kb, all_vievs
 from lexicon.lexicon_ru import LEXICON_RU
-from aiogram.utils.formatting import Text, Bold
-from aiogram.fsm.state import StatesGroup, State
-from aiogram.fsm.context import FSMContext
-from BaseD.request import add_new_ank, get_ank
 
 # Инициализируем роутер уровня модуля
 router = Router()
 
 admin_ids: list[int] = [6153194013, 6419228214]
-
-
-class Adank(StatesGroup):
-    FIO = State()
-    Educat = State()
-    Profes = State()
-    like = State()
-    Experience = State()
-    Qualit = State()
-    Languag = State()
-    Info = State()
-    Works = State()
-    Contacts = State()
 
 
 class IsAdmin(BaseFilter):
@@ -46,9 +34,10 @@ async def process_start_command(message: Message):
     await message.answer(
         **content.as_kwargs()
     )
-    await message.answer(text=LEXICON_RU['/start'],
-                         reply_markup=Start_board
-                         )
+    await message.answer(
+        text=LEXICON_RU['/start'],
+        reply_markup=Start_board
+    )
 
 
 # Этот хэндлер срабатывает на команду /help
@@ -71,12 +60,12 @@ async def process_viev(message: Message):
 @router.message(F.text == LEXICON_RU['All'])
 async def process_all(message: Message):
     await message.answer(
-        text=f'Администратор вот все анкеты',
+        text=f'Администратор вот все анкеты, выберите анкету.',
         reply_markup=await all_vievs()
     )
 
 
-@router.callback_query(F.data.startswith('ank_'))
+@router.callback_query(F.data.startswith('FIO_'))
 async def process_men(callback: CallbackQuery):
     ank_data = await get_ank(callback.data.split('_')[1])
     await callback.answer('Вы выбрали анкету')
@@ -84,8 +73,60 @@ async def process_men(callback: CallbackQuery):
         text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
              f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
              f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Информация: {ank_data.Info} \n'
-             f' Примеры работ: {ank_data.Works} \n Контактная информация: {ank_data.Contact}',
+             f' Примеры работ: {ank_data.Works} \n Контактная информация: {ank_data.Contacts}',
         reply_markup=adm_kb
+    )
+
+
+@router.message(F.text == LEXICON_RU['find by FIO'])
+async def process_FIO(message: Message, state: FSMContext):
+    await state.set_state(find.FIO)
+    await message.answer(
+        text='Введите ФИО кого нужно найти.'
+    )
+
+@router.message(find.FIO)
+async def find_FIO(message: Message, state: FSMContext):
+    await Find_by_FIO(message.text)
+
+
+@router.message(F.text == LEXICON_RU['find by id'])
+async def process_iad(message: Message):
+    await message.answer(
+        text='Введите ФИО кого нужно найти.'
+    )
+
+
+@router.message(F.text == LEXICON_RU['find by profession'])
+async def process_profession(message: Message):
+    await message.answer(
+        text='Введите ФИО кого нужно найти.'
+    )
+
+@router.message(F.text == LEXICON_RU['find by like'])
+async def process_like(message: Message):
+    await message.answer(
+        text='Введите ФИО кого нужно найти.'
+    )
+
+@router.message(F.text == LEXICON_RU['find by Languages'])
+async def process_Languages(message: Message):
+    await message.answer(
+        text='Введите ФИО кого нужно найти.'
+    )
+
+
+@router.message(F.text == LEXICON_RU['find by experience'])
+async def process_experience(message: Message):
+    await message.answer(
+        text='Введите ФИО кого нужно найти.'
+    )
+
+
+@router.message(F.text == LEXICON_RU['find by Qualities'])
+async def process_experience(message: Message):
+    await message.answer(
+        text='Введите ФИО кого нужно найти.'
     )
 
 
@@ -198,4 +239,5 @@ async def Step_elev(message: Message, state: FSMContext):
     )
     await add_new_ank(data['FIO'], data['Educat'], data['Profes'], data['like'], data['Experience'],
                       data['Qualit'], data['Languag'], data['Info'], data['Works'], data['Contact'])
+    await OnePhase(message.from_user.id, data['FIO'])
     await state.clear()

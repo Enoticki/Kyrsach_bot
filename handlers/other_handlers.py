@@ -10,6 +10,7 @@ router = Router()
 # Этот хэндлер будет срабатывать на любые ваши сообщения,
 @router.message()
 async def send_answer(message: Message):
-    await message.answer(text=LEXICON_RU['other_answer'],
-                         reply_markup=Start_board
-                         )
+    await message.answer(
+        text=LEXICON_RU['other_answer'],
+        reply_markup=Start_board
+    )

@@ -10,6 +10,7 @@ LEXICON_RU: dict[str, str] = {
     'find by Languages': 'Найти по языкам',
     'find by experience': 'Найти по опыту',
     'find by Qualities': 'Найти по качествам',
+    'find by like': 'Найти по желаемой должности',
     'other_answer': 'Извини, увы, это сообщение мне непонятно...',
     'All': 'Просмотреть все',
     'send': 'Отправить',
