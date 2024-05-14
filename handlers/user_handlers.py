@@ -29,7 +29,8 @@ async def process_start_command(message: Message):
     content = Text(
         "Привет, ",
         Bold(message.from_user.full_name),
-        ", я помогу тебе в составлении резюме!"
+        ", я помогу тебе в составлении резюме!\n"
+        "Резюме можно сделать всего один раз!"
     )
     await message.answer(
         **content.as_kwargs()
@@ -85,48 +86,49 @@ async def process_FIO(message: Message, state: FSMContext):
         text='Введите ФИО кого нужно найти.'
     )
 
+
 @router.message(find.FIO)
-async def find_FIO(message: Message, state: FSMContext):
+async def find_FIO(message: Message):
     await Find_by_FIO(message.text)
 
 
 @router.message(F.text == LEXICON_RU['find by id'])
-async def process_iad(message: Message):
+async def process_iad(message: Message, state: FSMContext):
+    await state.set_state(find.id)
     await message.answer(
-        text='Введите ФИО кого нужно найти.'
+        text='Введите Id пользователя того кого нужно найти.'
     )
 
 
 @router.message(F.text == LEXICON_RU['find by profession'])
-async def process_profession(message: Message):
+async def process_profession(message: Message, state: FSMContext):
+    await state.set_state(find.profession)
     await message.answer(
-        text='Введите ФИО кого нужно найти.'
+        text='Введите нужную профессию.'
     )
 
-@router.message(F.text == LEXICON_RU['find by like'])
-async def process_like(message: Message):
-    await message.answer(
-        text='Введите ФИО кого нужно найти.'
-    )
 
 @router.message(F.text == LEXICON_RU['find by Languages'])
-async def process_Languages(message: Message):
+async def process_Languages(message: Message, state: FSMContext):
+    await state.set_state(find.Languages)
     await message.answer(
-        text='Введите ФИО кого нужно найти.'
+        text='Введите языки которые должен знать работик.'
     )
 
 
 @router.message(F.text == LEXICON_RU['find by experience'])
-async def process_experience(message: Message):
+async def process_experience(message: Message, state: FSMContext):
+    await state.set_state(find.experience)
     await message.answer(
-        text='Введите ФИО кого нужно найти.'
+        text='Введите опыт работы который должен быть у работника.'
     )
 
 
 @router.message(F.text == LEXICON_RU['find by Qualities'])
-async def process_experience(message: Message):
+async def process_experience(message: Message, state: FSMContext):
+    await state.set_state(find.Qualities)
     await message.answer(
-        text='Введите ФИО кого нужно найти.'
+        text='Введите личностные качества которые должены быть у работника.'
     )
 
 
