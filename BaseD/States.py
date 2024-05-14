@@ -18,7 +18,6 @@ class find(StatesGroup):
     FIO = State()
     id = State()
     profession = State()
-    like = State()
     Languages = State()
     experience = State()
     Qualities = State()
