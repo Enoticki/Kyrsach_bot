@@ -240,6 +240,6 @@ async def Step_elev(message: Message, state: FSMContext):
              f' Примеры работ: {data['Works']} \n Контактная информация: {data['Contact']}'
     )
     await add_new_ank(data['FIO'], data['Educat'], data['Profes'], data['like'], data['Experience'],
-                      data['Qualit'], data['Languag'], data['Info'], data['Works'], data['Contact'])
+                      data['Qualit'], data['Languag'], data['Info'], data['Works'], data['Contact'], message.from_user.id)
     await OnePhase(message.from_user.id, data['FIO'])
     await state.clear()

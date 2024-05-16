@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="Начало работы над фильтрацией анкет">
+    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="Функции были дополнены и обновлён текст вывода администратору">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,23 +49,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.Bot handler.executor&quot;: &quot;Run&quot;,
-    &quot;Python.config.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dfg.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ghj,f.executor&quot;: &quot;Run&quot;,
-    &quot;Python.inlkey.executor&quot;: &quot;Run&quot;,
-    &quot;Python.keyboards.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.proverka.executor&quot;: &quot;Run&quot;,
-    &quot;Python.sqbd.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.Bot handler.executor": "Run",
+    "Python.config.executor": "Run",
+    "Python.dfg.executor": "Run",
+    "Python.ghj,f.executor": "Run",
+    "Python.inlkey.executor": "Run",
+    "Python.keyboards.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.proverka.executor": "Run",
+    "Python.sqbd.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "application.passwordSafe"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Danil\PycharmProjects\Kyrsach bot" />
@@ -207,7 +207,31 @@
       <option name="project" value="LOCAL" />
       <updated>1715530057547</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Добавление внешнего ключа для дальнейшей более удобной фильтрации данных">
+      <option name="closed" value="true" />
+      <created>1715704763619</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715704763619</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Была убрана ненужная переменная.">
+      <option name="closed" value="true" />
+      <created>1715704819930</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715704819930</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Функции были дополнены и обновлён текст вывода администратору">
+      <option name="closed" value="true" />
+      <created>1715704878023</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715704878023</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,6 +257,9 @@
     <MESSAGE value="Создана функциональная часть для пользователя" />
     <MESSAGE value="Исправление ошибок и реструктурирование по PEP8" />
     <MESSAGE value="Начало работы над фильтрацией анкет" />
-    <option name="LAST_COMMIT_MESSAGE" value="Начало работы над фильтрацией анкет" />
+    <MESSAGE value="Добавление внешнего ключа для дальнейшей более удобной фильтрации данных" />
+    <MESSAGE value="Была убрана ненужная переменная." />
+    <MESSAGE value="Функции были дополнены и обновлён текст вывода администратору" />
+    <option name="LAST_COMMIT_MESSAGE" value="Функции были дополнены и обновлён текст вывода администратору" />
   </component>
 </project>
