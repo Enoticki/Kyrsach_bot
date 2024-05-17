@@ -162,7 +162,7 @@ async def Step_three(message: Message, state: FSMContext):
     await state.update_data(Educat=message.text)
     await state.set_state(Adank.Profes)
     await message.answer(
-        text='Ввидите полученое вами профессию.'
+        text='Ввидите полученые вами профессии.'
     )
 
 
@@ -205,6 +205,15 @@ async def Step_seven(message: Message, state: FSMContext):
 @router.message(Adank.Languag)
 async def Step_eght(message: Message, state: FSMContext):
     await state.update_data(Languag=message.text)
+    await state.set_state(Adank.Сomplang)
+    await message.answer(
+        text='Ввидите языки программирования которые вы знаете. (если их нету введите "-")'
+    )
+
+
+@router.message(Adank.Сomplang)
+async def Step_eghtfive(message: Message, state: FSMContext):
+    await state.update_data(Сomplang=message.text)
     await state.set_state(Adank.Info)
     await message.answer(
         text='Ввидите информацию о себе.'
@@ -236,10 +245,12 @@ async def Step_elev(message: Message, state: FSMContext):
     await message.answer(
         text=f'Спасибо за резюме. Я его вам выведу: \n ФИО: {data['FIO']} \n Образование: {data['Educat']} \n'
              f' Профессия: {data['Profes']} \n Желаемая должность: {data['like']} \n Опыт: {data['Experience']} \n'
-             f' Качества: {data['Qualit']} \n Языки: {data['Languag']} \n Информация: {data['Info']} \n'
-             f' Примеры работ: {data['Works']} \n Контактная информация: {data['Contact']}'
+             f' Качества: {data['Qualit']} \n Языки: {data['Languag']} \n Языки программирования {data['Сomplang']}'
+             f' \n Информация: {data['Info']} \n Примеры работ: {data['Works']}'
+             f' \n Контактная информация: {data['Contact']}'
     )
     await add_new_ank(data['FIO'], data['Educat'], data['Profes'], data['like'], data['Experience'],
-                      data['Qualit'], data['Languag'], data['Info'], data['Works'], data['Contact'], message.from_user.id)
+                      data['Qualit'], data['Languag'], data['Сomplang'], data['Info'], data['Works'], data['Contact'],
+                      message.from_user.id)
     await OnePhase(message.from_user.id, data['FIO'])
     await state.clear()

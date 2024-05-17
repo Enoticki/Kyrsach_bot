@@ -1,15 +1,18 @@
 from sqlalchemy import select, BigInteger
+
 from BaseD.sqbd import User_Info, User_name
 from BaseD.sqbd import async_session
 
 
-async def add_new_ank(FIO, Educat, Profes, like, Experience, Qualit, Languag, Info, Works, Contacts, tg_id: BigInteger):
+async def add_new_ank(FIO, Educat, Profes, like, Experience, Qualit, Languag, Сomplang, Info, Works, Contacts,
+                      tg_id: BigInteger):
     async with async_session() as session:
         user = await session.scalar(select(User_name).where(User_name.tg_id == tg_id))
 
         if user is not User_name:
             session.add(User_Info(FIO=FIO, Educat=Educat, Profes=Profes, like=like, Experience=Experience,
-                                  Qualit=Qualit, Languag=Languag, Info=Info, Works=Works, Contacts=Contacts))
+                                  Qualit=Qualit, Languag=Languag, Сomplang=Сomplang, Info=Info, Works=Works,
+                                  Contacts=Contacts))
             await session.commit()
 
 

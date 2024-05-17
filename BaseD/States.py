@@ -1,6 +1,7 @@
 from aiogram.fsm.state import StatesGroup, State
 
 
+# noinspection NonAsciiCharacters
 class Adank(StatesGroup):
     FIO = State()
     Educat = State()
@@ -9,6 +10,7 @@ class Adank(StatesGroup):
     Experience = State()
     Qualit = State()
     Languag = State()
+    Сomplang = State()
     Info = State()
     Works = State()
     Contacts = State()
