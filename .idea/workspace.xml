@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="Исправлены замечания от PyCharm">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseD/States.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseD/States.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseD/sqbd.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseD/sqbd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/user_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/user_handlers.py" afterDir="false" />
-    </list>
+    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="Добавлена переменная Complang которая будет собирать изученные языки программирования человеком" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +37,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -257,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715869224422</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Добавлена переменная Complang которая будет собирать изученные языки программирования человеком">
+      <option name="closed" value="true" />
+      <created>1715961580125</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1715961580125</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,6 +289,7 @@
     <MESSAGE value="Была убрана ненужная переменная." />
     <MESSAGE value="Функции были дополнены и обновлён текст вывода администратору" />
     <MESSAGE value="Исправлены замечания от PyCharm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправлены замечания от PyCharm" />
+    <MESSAGE value="Добавлена переменная Complang которая будет собирать изученные языки программирования человеком" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлена переменная Complang которая будет собирать изученные языки программирования человеком" />
   </component>
 </project>
