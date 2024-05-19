@@ -5,14 +5,14 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.utils.formatting import Text, Bold
 
 from BaseD.States import Adank, find
-from BaseD.request import add_new_ank, get_ank, OnePhase, Find_by_FIO
-from keyboards.keyboards import Start_board, adm_kb, all_vievs
+from BaseD.request import *
+from keyboards.keyboards import Start_board, adm_kb, all_vievs, id
 from lexicon.lexicon_ru import LEXICON_RU
 
 # Инициализируем роутер уровня модуля
 router = Router()
 
-admin_ids: list[int] = [6153194013, 6419228214]
+admin_ids: list[int] = [6153194013]
 
 
 class IsAdmin(BaseFilter):
@@ -73,8 +73,9 @@ async def process_men(callback: CallbackQuery):
     await callback.message.answer(
         text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
              f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
-             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Информация: {ank_data.Info} \n'
-             f' Примеры работ: {ank_data.Works} \n Контактная информация: {ank_data.Contacts}',
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
+             f' \n Контактная информация: {ank_data.Contacts}',
         reply_markup=adm_kb
     )
 
@@ -88,15 +89,37 @@ async def process_FIO(message: Message, state: FSMContext):
 
 
 @router.message(find.FIO)
-async def find_FIO(message: Message):
-    await Find_by_FIO(message.text)
+async def find_FIO(message: Message, state: FSMContext):
+    ank_data = await Find_by_FIO(message.text)
+    await message.answer(
+        text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
+             f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
+             f' \n Контактная информация: {ank_data.Contacts}',
+    )
+    await state.clear()
 
 
 @router.message(F.text == LEXICON_RU['find by id'])
-async def process_iad(message: Message, state: FSMContext):
-    await state.set_state(find.id)
+async def process_all(message: Message):
     await message.answer(
-        text='Введите Id пользователя того кого нужно найти.'
+        text='Вот самые новые анкеты!',
+        reply_markup=await id()
+    )
+
+
+@router.callback_query(F.data.startswith('ID_'))
+async def process_men(callback: CallbackQuery):
+    ank_data = await get_ank(callback.data.split('_')[1])
+    await callback.answer('Вы выбрали анкету')
+    await callback.message.answer(
+        text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
+             f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
+             f' \n Контактная информация: {ank_data.Contacts}',
+        reply_markup=adm_kb
     )
 
 
@@ -108,6 +131,19 @@ async def process_profession(message: Message, state: FSMContext):
     )
 
 
+@router.message(find.profession)
+async def find_profession(message: Message, state: FSMContext):
+    ank_data = await Find_by_prof(message.text)
+    await message.answer(
+        text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
+             f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
+             f' \n Контактная информация: {ank_data.Contacts}',
+    )
+    await state.clear()
+
+
 @router.message(F.text == LEXICON_RU['find by Languages'])
 async def process_Languages(message: Message, state: FSMContext):
     await state.set_state(find.Languages)
@@ -116,12 +152,25 @@ async def process_Languages(message: Message, state: FSMContext):
     )
 
 
+@router.message(find.Languages)
+async def find_lang(message: Message, state: FSMContext):
+    ank_data = await Find_by_lang(message.text)
+    await message.answer(
+        text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
+             f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
+             f' \n Контактная информация: {ank_data.Contacts}',
+    )
+    await state.clear()
+
+
 @router.message(F.text == LEXICON_RU['find by experience'])
 async def process_experience(message: Message, state: FSMContext):
     await state.set_state(find.experience)
     await message.answer(
         text='Введите опыт работы который должен быть у работника.'
-    )
+    )  # Не помню как сделать нужно будет ещё раз спросить
 
 
 @router.message(F.text == LEXICON_RU['find by Qualities'])
@@ -132,11 +181,24 @@ async def process_experience(message: Message, state: FSMContext):
     )
 
 
+@router.message(find.Qualities)
+async def find_qual(message: Message, state: FSMContext):
+    ank_data = await Find_by_qual(message.text)
+    await message.answer(
+        text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
+             f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
+             f' \n Контактная информация: {ank_data.Contacts}',
+    )
+    await state.clear()
+
+
 @router.message(F.text == LEXICON_RU['home'])
 async def process_all(message: Message):
     await message.answer(
         text=f'Вы вернулись в начало',
-        reply_markup=adm_kb
+        reply_markup=Start_board
     )
 
 
@@ -144,7 +206,7 @@ async def process_all(message: Message):
 async def Step_one(message: Message, state: FSMContext):
     await state.set_state(Adank.FIO)
     await message.answer(
-        text='Ввидите ваше ФИО.'
+        text='Введите ваше ФИО.'
     )
 
 
@@ -153,7 +215,7 @@ async def Step_two(message: Message, state: FSMContext):
     await state.update_data(FIO=message.text)
     await state.set_state(Adank.Educat)
     await message.answer(
-        text='Ввидите полученое вами образование.'
+        text='Введите полученое вами образование.'
     )
 
 
@@ -162,7 +224,7 @@ async def Step_three(message: Message, state: FSMContext):
     await state.update_data(Educat=message.text)
     await state.set_state(Adank.Profes)
     await message.answer(
-        text='Ввидите полученые вами профессии.'
+        text='Введите полученые вами профессии.'
     )
 
 
@@ -171,7 +233,7 @@ async def Step_four(message: Message, state: FSMContext):
     await state.update_data(Profes=message.text)
     await state.set_state(Adank.like)
     await message.answer(
-        text='Ввидите желаемую должность.'
+        text='Введите желаемую должность.'
     )
 
 
@@ -180,7 +242,7 @@ async def Step_five(message: Message, state: FSMContext):
     await state.update_data(like=message.text)
     await state.set_state(Adank.Experience)
     await message.answer(
-        text='Ввидите ваш опыт работы. (если его нету введите "-")'
+        text='Введите ваш опыт работы. (если его нету введите "-")'
     )
 
 
@@ -189,7 +251,7 @@ async def Step_six(message: Message, state: FSMContext):
     await state.update_data(Experience=message.text)
     await state.set_state(Adank.Qualit)
     await message.answer(
-        text='Ввидите ваши качества.'
+        text='Введите ваши качества.'
     )
 
 
@@ -198,7 +260,7 @@ async def Step_seven(message: Message, state: FSMContext):
     await state.update_data(Qualit=message.text)
     await state.set_state(Adank.Languag)
     await message.answer(
-        text='Ввидите языки которые вы знаете.'
+        text='Введите языки которые вы знаете.'
     )
 
 
@@ -207,7 +269,7 @@ async def Step_eght(message: Message, state: FSMContext):
     await state.update_data(Languag=message.text)
     await state.set_state(Adank.Сomplang)
     await message.answer(
-        text='Ввидите языки программирования которые вы знаете. (если их нету введите "-")'
+        text='Введите языки программирования которые вы знаете. (если их нету введите "-")'
     )
 
 
@@ -216,7 +278,7 @@ async def Step_eghtfive(message: Message, state: FSMContext):
     await state.update_data(Сomplang=message.text)
     await state.set_state(Adank.Info)
     await message.answer(
-        text='Ввидите информацию о себе.'
+        text='Введите информацию о себе.'
     )
 
 
@@ -225,7 +287,7 @@ async def Step_nine(message: Message, state: FSMContext):
     await state.update_data(Info=message.text)
     await state.set_state(Adank.Works)
     await message.answer(
-        text='Ввидите ссылки на ваши работы через пробел. (если их нету введите "-")'
+        text='Введите ссылки на ваши работы через пробел. (если их нету введите "-")'
     )
 
 
@@ -234,7 +296,7 @@ async def Step_ten(message: Message, state: FSMContext):
     await state.update_data(Works=message.text)
     await state.set_state(Adank.Contacts)
     await message.answer(
-        text='Ввидите номер телефона и почту. (Пример: +7********** *****@****.***)'
+        text='Введите номер телефона и почту. (Пример: +7********** *****@****.***)'
     )
 
 

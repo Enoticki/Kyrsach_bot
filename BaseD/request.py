@@ -1,4 +1,4 @@
-from sqlalchemy import select, BigInteger
+from sqlalchemy import select, BigInteger, desc
 
 from BaseD.sqbd import User_Info, User_name
 from BaseD.sqbd import async_session
@@ -32,9 +32,29 @@ async def viev_all():
 
 async def get_ank(id_ank):
     async with async_session() as session:
-        return await session.scalar(select(User_Info).where(User_Info.id == id_ank))
+        return await session.scalar(select(User_Info).where(User_Info.iad == id_ank))
 
 
 async def Find_by_FIO(FIO):
     async with async_session() as session:
-        user = await session.scalar(select())
+        return await session.scalar(select(User_Info).filter(User_Info.FIO.like(f'{FIO}%')))
+
+
+async def Find_by_id():
+    async with async_session() as session:
+        return await session.scalars(select(User_Info).order_by(desc(User_Info.iad)).limit(2))
+
+
+async def Find_by_prof(prof):
+    async with async_session() as session:
+        return await session.scalar(select(User_Info).filter(User_Info.Profes.like(f'%{prof}%')))
+
+
+async def Find_by_lang(lang):
+    async with async_session() as session:
+        return await session.scalar(select(User_Info).filter(User_Info.Languag.like(f'%{lang}%')))
+
+
+async def Find_by_qual(qual):
+    async with async_session() as session:
+        return await session.scalar(select(User_Info).filter(User_Info.Qualit.like(f'%{qual}%')))

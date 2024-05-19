@@ -1,7 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, InlineKeyboardButton, KeyboardButton
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 
-from BaseD.request import viev_all
+from BaseD.request import viev_all, Find_by_id
 from lexicon.lexicon_ru import LEXICON_RU
 
 Add = KeyboardButton(text=LEXICON_RU['add_ank'])
@@ -44,5 +44,12 @@ async def all_vievs():
     keyboard = InlineKeyboardBuilder()
     for viev in All:
         keyboard.add(InlineKeyboardButton(text=viev.FIO, callback_data=f'FIO_{viev.iad}'))
-    keyboard.add(InlineKeyboardButton(text=LEXICON_RU['home'], callback_data='home'))
+    return keyboard.adjust(2).as_markup()
+
+
+async def id():
+    All = await Find_by_id()
+    keyboard = InlineKeyboardBuilder()
+    for viev in All:
+        keyboard.add(InlineKeyboardButton(text=viev.FIO, callback_data=f'ID_{viev.iad}'))
     return keyboard.adjust(2).as_markup()

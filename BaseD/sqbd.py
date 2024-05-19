@@ -21,7 +21,7 @@ class User_name(Base):
 class User_Info(Base):
     __tablename__ = 'Users'
 
-    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    iad: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     FIO: Mapped[str] = mapped_column()
     Educat: Mapped[str] = mapped_column()
     Profes: Mapped[str] = mapped_column()
