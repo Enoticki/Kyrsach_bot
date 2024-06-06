@@ -47,14 +47,14 @@ async def Find_by_id():
 
 async def Find_by_prof(prof):
     async with async_session() as session:
-        return await session.scalar(select(User_Info).filter(User_Info.Profes.like(f'%{prof}%')))
+        return await session.scalars(select(User_Info).filter(User_Info.Profes.like(f'%{prof}%')))
 
 
 async def Find_by_lang(lang):
     async with async_session() as session:
-        return await session.scalar(select(User_Info).filter(User_Info.Languag.like(f'%{lang}%')))
+        return await session.scalars(select(User_Info).filter(User_Info.Languag.like(f'%{lang}%')))
 
 
 async def Find_by_qual(qual):
     async with async_session() as session:
-        return await session.scalar(select(User_Info).filter(User_Info.Qualit.like(f'%{qual}%')))
+        return await session.scalars(select(User_Info).filter(User_Info.Qualit.like(f'%{qual}%')))

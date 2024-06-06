@@ -22,19 +22,15 @@ button_1 = KeyboardButton(text=LEXICON_RU['find by FIO'])
 button_2 = KeyboardButton(text=LEXICON_RU['find by id'])
 button_3 = KeyboardButton(text=LEXICON_RU['find by profession'])
 button_4 = KeyboardButton(text=LEXICON_RU['find by Languages'])
-button_5 = KeyboardButton(text=LEXICON_RU['find by experience'])
-button_6 = KeyboardButton(text=LEXICON_RU['find by Qualities'])
+button_5 = KeyboardButton(text=LEXICON_RU['find by Qualities'])
+button_6 = KeyboardButton(text=LEXICON_RU['inform'])
 button_7 = KeyboardButton(text=LEXICON_RU['home'])
 
 adm_kb = ReplyKeyboardMarkup(
-    keyboard=[[button_0],
-              [button_1],
-              [button_2],
-              [button_3],
-              [button_4],
-              [button_5],
-              [button_6],
-              [button_7]],
+    keyboard=[[button_0, button_1],
+              [button_2, button_3],
+              [button_4, button_5],
+              [button_6, button_7]],
     resize_keyboard=True
 )
 

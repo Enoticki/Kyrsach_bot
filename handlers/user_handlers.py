@@ -165,14 +165,6 @@ async def find_lang(message: Message, state: FSMContext):
     await state.clear()
 
 
-@router.message(F.text == LEXICON_RU['find by experience'])
-async def process_experience(message: Message, state: FSMContext):
-    await state.set_state(find.experience)
-    await message.answer(
-        text='Введите опыт работы который должен быть у работника.'
-    )  # Не помню как сделать нужно будет ещё раз спросить
-
-
 @router.message(F.text == LEXICON_RU['find by Qualities'])
 async def process_experience(message: Message, state: FSMContext):
     await state.set_state(find.Qualities)
@@ -192,6 +184,14 @@ async def find_qual(message: Message, state: FSMContext):
              f' \n Контактная информация: {ank_data.Contacts}',
     )
     await state.clear()
+
+
+@router.message(F.text == LEXICON_RU['inform'])
+async def process_all(message: Message):
+    await message.answer(
+        text=f'Здесь вы можете узнать как пользоваться какой либо функцией',
+        # reply_markup=
+    )
 
 
 @router.message(F.text == LEXICON_RU['home'])
@@ -215,7 +215,7 @@ async def Step_two(message: Message, state: FSMContext):
     await state.update_data(FIO=message.text)
     await state.set_state(Adank.Educat)
     await message.answer(
-        text='Введите полученое вами образование.'
+        text='Введите полученое вами образование. (Каждое образование с большой буквы.)'
     )
 
 
@@ -224,7 +224,7 @@ async def Step_three(message: Message, state: FSMContext):
     await state.update_data(Educat=message.text)
     await state.set_state(Adank.Profes)
     await message.answer(
-        text='Введите полученые вами профессии.'
+        text='Введите полученые вами профессии. (Каждую профессию с большой буквы.)'
     )
 
 
@@ -233,7 +233,7 @@ async def Step_four(message: Message, state: FSMContext):
     await state.update_data(Profes=message.text)
     await state.set_state(Adank.like)
     await message.answer(
-        text='Введите желаемую должность.'
+        text='Введите желаемую должность. (Каждую должность с большой буквы.)'
     )
 
 
@@ -251,7 +251,7 @@ async def Step_six(message: Message, state: FSMContext):
     await state.update_data(Experience=message.text)
     await state.set_state(Adank.Qualit)
     await message.answer(
-        text='Введите ваши качества.'
+        text='Введите ваши качества. (Каждое качество с большой буквы.)'
     )
 
 
@@ -260,7 +260,7 @@ async def Step_seven(message: Message, state: FSMContext):
     await state.update_data(Qualit=message.text)
     await state.set_state(Adank.Languag)
     await message.answer(
-        text='Введите языки которые вы знаете.'
+        text='Введите языки на которых вы разговариваете. (Каждый языки с большой буквы.)'
     )
 
 
@@ -269,7 +269,8 @@ async def Step_eght(message: Message, state: FSMContext):
     await state.update_data(Languag=message.text)
     await state.set_state(Adank.Сomplang)
     await message.answer(
-        text='Введите языки программирования которые вы знаете. (если их нету введите "-")'
+        text='Введите языки программирования которые вы знаете. (если их нету введите "-",'
+             ' каждый язык с большой буквы.)'
     )
 
 
