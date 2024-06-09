@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="Настроена фильтрация.">
+    <list default="true" id="879af07e-fc3f-4220-a7c0-71914890a43c" name="Changes" comment="обновлено">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseD/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseD/request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/user_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/user_handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyboards/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/keyboards.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lexicon/lexicon_ru.py" beforeDir="false" afterPath="$PROJECT_DIR$/lexicon/lexicon_ru.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716131561329</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="обновлено">
+      <option name="closed" value="true" />
+      <created>1717688457128</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717688457128</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,6 +321,7 @@
     <MESSAGE value="Добавлена переменная Complang которая будет собирать изученные языки программирования человеком" />
     <MESSAGE value="проверка" />
     <MESSAGE value="Настроена фильтрация." />
-    <option name="LAST_COMMIT_MESSAGE" value="Настроена фильтрация." />
+    <MESSAGE value="обновлено" />
+    <option name="LAST_COMMIT_MESSAGE" value="обновлено" />
   </component>
 </project>

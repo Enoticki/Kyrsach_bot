@@ -49,3 +49,18 @@ async def id():
     for viev in All:
         keyboard.add(InlineKeyboardButton(text=viev.FIO, callback_data=f'ID_{viev.iad}'))
     return keyboard.adjust(2).as_markup()
+
+button_8 = KeyboardButton(text=LEXICON_RU['All help'])
+button_9 = KeyboardButton(text=LEXICON_RU['find by FIO help'])
+button_10 = KeyboardButton(text=LEXICON_RU['find by id help'])
+button_11 = KeyboardButton(text=LEXICON_RU['find by profession help'])
+button_12 = KeyboardButton(text=LEXICON_RU['find by Languages help'])
+button_13 = KeyboardButton(text=LEXICON_RU['find by Qualities help'])
+
+adm_kb_help = ReplyKeyboardMarkup(
+    keyboard=[[button_8, button_9],
+              [button_10, button_11],
+              [button_12, button_13],
+              [button_7]],
+    resize_keyboard=True
+)

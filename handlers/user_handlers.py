@@ -6,13 +6,13 @@ from aiogram.utils.formatting import Text, Bold
 
 from BaseD.States import Adank, find
 from BaseD.request import *
-from keyboards.keyboards import Start_board, adm_kb, all_vievs, id
+from keyboards.keyboards import *
 from lexicon.lexicon_ru import LEXICON_RU
 
 # Инициализируем роутер уровня модуля
 router = Router()
 
-admin_ids: list[int] = [6153194013]
+admin_ids: list[int] = [6153194013, 1067952654]
 
 
 class IsAdmin(BaseFilter):
@@ -47,6 +47,62 @@ async def process_help_command(message: Message):
     await message.answer(
         text=LEXICON_RU['/help'],
         reply_markup=Start_board
+    )
+
+
+@router.message(F.text == LEXICON_RU['inform'])
+async def process_viev(message: Message):
+    await message.answer(
+        text=f'Не понимаете как работает поиск.\n Выберите способ я расскажу подробнее о нём!',
+        reply_markup=adm_kb_help
+    )
+
+
+@router.message(F.text == LEXICON_RU['find by FIO help'])
+async def process_viev(message: Message):
+    await message.answer(
+        text=f'Введите ФИ или ФИО человека как указано в анкете, например: Дзюба Максим или Илькаев Наиль Рауфович. ',
+        reply_markup=adm_kb_help
+    )
+
+
+@router.message(F.text == LEXICON_RU['find by id help'])
+async def process_viev(message: Message):
+    await message.answer(
+        text=f'Выводит последние 2 анкеты которые оставили пользователи.',
+        reply_markup=adm_kb_help
+    )
+
+
+@router.message(F.text == LEXICON_RU['find by profession help'])
+async def process_viev(message: Message):
+    await message.answer(
+        text=f'Введите профессию которую хотите найти например: Программист или Уборщик.',
+        reply_markup=adm_kb_help
+    )
+
+
+@router.message(F.text == LEXICON_RU['find by Languages help'])
+async def process_viev(message: Message):
+    await message.answer(
+        text=f'Введите язык который должен знать человек например: Русский или Английский.',
+        reply_markup=adm_kb_help
+    )
+
+
+@router.message(F.text == LEXICON_RU['find by Qualities help'])
+async def process_viev(message: Message):
+    await message.answer(
+        text=f'Введите качества человека например: Коммуникабельность или Обучаемость.',
+        reply_markup=adm_kb_help
+    )
+
+
+@router.message(F.text == LEXICON_RU['All help'])
+async def process_viev(message: Message):
+    await message.answer(
+        text=f'Показывает все анкеты которые есть на данный момент.',
+        reply_markup=adm_kb_help
     )
 
 

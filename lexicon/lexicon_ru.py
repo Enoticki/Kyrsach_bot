@@ -14,5 +14,11 @@ LEXICON_RU: dict[str, str] = {
     'All': 'Просмотреть все',
     'send': 'Отправить',
     'next': 'Далее',
-    'home': 'Домой'
+    'home': 'Домой',
+    'find by FIO help': 'Найти по фио',
+    'find by id help': 'Найти по Новизне',
+    'find by profession help': 'Найти по Профессии',
+    'find by Languages help': 'Найти по Языкам',
+    'find by Qualities help': 'Найти по Качествам',
+    'All help': 'Просмотреть Все',
 }
