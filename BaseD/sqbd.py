@@ -29,7 +29,7 @@ class User_Info(Base):
     Experience: Mapped[str] = mapped_column()
     Qualit: Mapped[str] = mapped_column()
     Languag: Mapped[str] = mapped_column()
-    Сomplang: Mapped[str] = mapped_column()
+    Komplang: Mapped[str] = mapped_column()
     Info: Mapped[str] = mapped_column()
     Works: Mapped[str] = mapped_column()
     Contacts: Mapped[str] = mapped_column()

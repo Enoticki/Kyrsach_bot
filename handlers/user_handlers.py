@@ -161,7 +161,7 @@ async def find_FIO(message: Message, state: FSMContext):
 async def process_all(message: Message):
     await message.answer(
         text='Вот самые новые анкеты!',
-        reply_markup=await id()
+        reply_markup=await iad()
     )
 
 

@@ -43,7 +43,7 @@ async def all_vievs():
     return keyboard.adjust(2).as_markup()
 
 
-async def id():
+async def iad():
     All = await Find_by_id()
     keyboard = InlineKeyboardBuilder()
     for viev in All:
