@@ -1,7 +1,10 @@
 import asyncio
 import logging
-from BaseD.sqbd import async_main
+
 from aiogram import Bot, Dispatcher
+from aiogram.client.default import DefaultBotProperties
+
+from BaseD.sqbd import async_main
 from handlers import other_handlers, user_handlers
 
 logger = logging.getLogger(__name__)
@@ -19,11 +22,10 @@ async def main():
     # Выводим в консоль информацию о начале запуска бота
     logger.info('Starting bot')
 
-    BOT_TOKEN = '6419228214:AAGGnk5FYBiuat3dI8CAk_6Rr1z1kDgNqZk'
+    BOT_TOKEN = '7382113715:AAEwWsScW6-lNSO1aOkNMZIxfbcpCe6PmiY'
 
     # Инициализируем бот и диспетчер
-    bot = Bot(token=BOT_TOKEN,
-              parse_mode='HTML')
+    bot = Bot(BOT_TOKEN, default=DefaultBotProperties(parse_mode='HTML'))
     dp = Dispatcher()
 
     # Регистриуем роутеры в диспетчере

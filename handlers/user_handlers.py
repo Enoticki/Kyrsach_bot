@@ -129,7 +129,7 @@ async def process_men(callback: CallbackQuery):
     await callback.message.answer(
         text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
              f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
-             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Komplang}'
              f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
              f' \n Контактная информация: {ank_data.Contacts}',
         reply_markup=adm_kb
@@ -150,7 +150,7 @@ async def find_FIO(message: Message, state: FSMContext):
     await message.answer(
         text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
              f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
-             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Komplang}'
              f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
              f' \n Контактная информация: {ank_data.Contacts}',
     )
@@ -172,7 +172,7 @@ async def process_men(callback: CallbackQuery):
     await callback.message.answer(
         text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
              f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
-             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Komplang}'
              f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
              f' \n Контактная информация: {ank_data.Contacts}',
         reply_markup=adm_kb
@@ -193,7 +193,7 @@ async def find_profession(message: Message, state: FSMContext):
     await message.answer(
         text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
              f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
-             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Komplang}'
              f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
              f' \n Контактная информация: {ank_data.Contacts}',
     )
@@ -214,7 +214,7 @@ async def find_lang(message: Message, state: FSMContext):
     await message.answer(
         text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
              f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
-             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Komplang}'
              f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
              f' \n Контактная информация: {ank_data.Contacts}',
     )
@@ -235,7 +235,7 @@ async def find_qual(message: Message, state: FSMContext):
     await message.answer(
         text=f'\n ФИО: {ank_data.FIO} \n Образование: {ank_data.Educat} \n'
              f' Профессия: {ank_data.Profes} \n Желаемая должность: {ank_data.like} \n Опыт: {ank_data.Experience} \n'
-             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Сomplang}'
+             f' Качества: {ank_data.Qualit} \n Языки: {ank_data.Languag} \n Языки программирования: {ank_data.Komplang}'
              f' \n Информация: {ank_data.Info} \n Примеры работ: {ank_data.Works}'
              f' \n Контактная информация: {ank_data.Contacts}',
     )

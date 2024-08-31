@@ -33,6 +33,7 @@ class User_Info(Base):
     Info: Mapped[str] = mapped_column()
     Works: Mapped[str] = mapped_column()
     Contacts: Mapped[str] = mapped_column()
+    tg_id = mapped_column(BigInteger)
 
 
 async def async_main():
